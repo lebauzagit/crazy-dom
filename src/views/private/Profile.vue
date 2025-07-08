@@ -294,6 +294,7 @@
 
 		try {
 			const avatarUrl = await authStore.uploadAvatar(file);
+			console.log("Avatar uploaded to:", avatarUrl);
 			success.value = "Avatar uploaded successfully!";
 			await loadProfile();
 		} catch (err: any) {
