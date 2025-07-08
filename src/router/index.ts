@@ -52,7 +52,7 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const { data: { session } } = await supabase.auth.getSession()
   const requiresAuth = to.meta.requiresAuth
-  
+  console.log('From:', from.path, 'To:', to.path, 'Session:', session)
   if (requiresAuth && !session) {
     next('/login')
   } else if (!requiresAuth && session) {
